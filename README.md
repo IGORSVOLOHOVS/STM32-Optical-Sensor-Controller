@@ -1,4 +1,4 @@
-# OpticManager - STM32 Optical Sensor Controller
+# STM32 Optical Sensor Controller
 
 Modern C++20 firmware for STM32C092RC microcontroller to manage 6 optical sensors with UART/CAN communication.
 
