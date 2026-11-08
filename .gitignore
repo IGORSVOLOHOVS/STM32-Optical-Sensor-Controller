@@ -1,85 +1,42 @@
-# STM32CubeIDE
+# Built, fetched and scratch - only ever at the root
+/dist/
+/build/
+/out/
+/tmp/
+/.venv/
+/.coverage
+
+# What the tools cache, wherever they run
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Prompt text, and one person's Claude Code settings
+.claude/logs/
+.claude/settings.local.json
+
+# No .env line: .claude/.env holds the keys and is committed on purpose (R-02).
+# DEVIATION from the line above, decided by the repository owner: no key is
+# ever committed, so .claude/.env is ignored here. Rule 4 of CLAUDE.md is
+# where that reversal is written down.
+.claude/.env
+
+# What this repository writes, kept from before the lab
+.env
+build/
+build-*/
 Debug/
 Release/
 .settings/
 .cproject
 .project
 .mxproject
-
-# Build artifacts
-*.o
-*.d
-*.su
-*.cyclo
 *.elf
-*.hex
-*.bin
 *.map
 *.list
-*.lst
-
-# Generated files
-*.launch
-*.ld
-
-# Dependency files
-*.dep
-
-# IDE specific
-.metadata/
-.recommenders/
-RemoteSystemsTempFiles/
-
-# OS specific
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# Backup files
-*~
-*.bak
-*.swp
-*.swo
-
-# Logs
-*.log
-
-# User-specific files
-*.user
-*.suo
-*.userosscache
-*.sln.docstates
-
-# Visual Studio Code
-.vscode/
-*.code-workspace
-
-# JetBrains IDEs
-.idea/
-*.iml
-*.iws
-
-# Python (if using scripts)
+docs/html/
 __pycache__/
 *.py[cod]
-*$py.class
-*.so
-.Python
-venv/
-env/
-
-# Node (if using any JS tools)
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Keep important files
-!*.ioc
-!*.cfg
-!*.ld
-!Makefile
-!*.mk
-!*.s
-!*.S
-.env
+compile_commands.json
