@@ -1,0 +1,10 @@
+Checks: >-
+  -*,
+  clang-diagnostic-*,
+  clang-analyzer-*,
+  bugprone-*,
+  performance-*,
+  portability-*
+WarningsAsErrors: '*'
+HeaderFilterRegex: '.*[/\]Core[/\]Src[/\]Impl[/\](App[/\]Settings|Drivers[/\]Transport[/\]CommunicationManager|Hal[/\]AdcStub)\.hpp$'
+ExtraArgs: ['--target=x86_64-w64-mingw32']
