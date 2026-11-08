@@ -133,3 +133,7 @@ generated and the HAL under `Drivers/` carry ST's own notices.
 `release` holds what was released and `test` what is being tested. On GitHub
 the repository had `main`, which `release` comes from, and `dev`, every commit
 of which is in `main`.
+
+## Lab requirements
+
+This repository complies with [revision 4.0.0](http://127.0.0.1:3000/igors-lab/software-requirements/src/tag/v4.0.0/BEST_REQUIREMENTS.md) of the lab requirements, except R-02 (#8), R-09 (#9), R-12 (#10), R-13 (#11), R-13 (#12), R-14 (#13), R-37 (#14), R-41 (#15), R-42 (#16).
