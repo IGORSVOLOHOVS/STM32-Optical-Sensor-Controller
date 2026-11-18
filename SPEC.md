@@ -23,6 +23,37 @@ referenced as D-1 and D-2:
   the same six values on every call. This contradicts "continuous" in `Adc.hpp:7-8,25` and
   `README.md:7`.
 
+<!-- jira-sync:start -->
+Jira: KAN-69
+
+## Tasks
+
+This list is one ticket in Jira project KAN, [KAN-69](https://igorsvolohovs.atlassian.net/browse/KAN-69). Each line is a checkbox there: tick it in Jira and the sync ticks it here; add a checkbox there and it is appended here. Done items are the features described in section 3; open items are what the project declares but the code does not do yet.
+
+- [x] Start-up (section 3.1) <!-- spec-start-up -->
+- [x] Transport selection (section 3.2) <!-- spec-transport-selection -->
+- [x] Sensor acquisition (section 3.3) <!-- spec-sensor-acquisition -->
+- [x] Main loop (section 3.4) <!-- spec-main-loop -->
+- [x] Protocol handling (transport-independent) (section 3.5) <!-- spec-protocol-handling-transport-independent -->
+- [x] Settings (section 3.6) <!-- spec-settings -->
+- [x] UART transport (USART1) (section 3.7) <!-- spec-uart-transport-usart1 -->
+- [x] CAN transport (section 3.8) <!-- spec-can-transport -->
+- [x] Debug output (USART2) (section 3.9) <!-- spec-debug-output-usart2 -->
+- [x] Test support (section 3.10) <!-- spec-test-support -->
+- [ ] Hysteresis and debouncing of sensor states (declared, not implemented) <!-- spec-hysteresis-and-debouncing-of-sensor-states -->
+- [ ] EMPTY / FULL / EMPTY_TEMPORARY state machine (declared, not implemented) <!-- spec-empty-full-emptytemporary-state-machine -->
+- [ ] CAN communication (declared, not implemented) <!-- spec-can-communication -->
+- [ ] LED update (declared, not implemented) <!-- spec-led-update -->
+- [ ] Continuous DMA sampling (declared, not implemented) <!-- spec-continuous-dma-sampling -->
+- [ ] Settings consistency check (declared, not implemented) <!-- spec-settings-consistency-check -->
+- [ ] Runtime change of all settings via protocol (declared, not implemented) <!-- spec-runtime-change-of-all-settings-via-protocol -->
+- [ ] "Enable verbose logging in UartTransport.hpp" (declared, not implemented) <!-- spec-enable-verbose-logging-in-uarttransport-hpp -->
+- [ ] "Thread-safe logging" (declared, not implemented) <!-- spec-thread-safe-logging -->
+- [ ] Protocol document `CAN_protocol (1).docx` (declared, not implemented) <!-- spec-protocol-document-canprotocol-1-docx -->
+- [ ] Entropy source for `std::random_device` (declared, not implemented) <!-- spec-entropy-source-for-std-randomdevice -->
+
+<!-- jira-sync:end -->
+
 ## 1. Purpose and scope
 
 The firmware runs on an STM32C092RC. It reads six analog optical-sensor inputs and exposes them,
