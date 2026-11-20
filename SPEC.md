@@ -324,3 +324,137 @@ or the target compiler.
 11. What should the LEDs and the user button do?
 12. The memory figures in `README.md:116-120` and `ARCHITECTURE.md:256-276` (~15 KB flash, 128 KB / 12 KB parts) do not match the linker script (256 KB / 30 KB). What is the real image size?
 13. How does `dev` (this commit) relate to `origin/release`, which is 17 commits ahead and adds tests, CI and other documents that are not described here?
+
+## Screenshots of requirements
+
+### FR-1 - The system shall call HALInit, SystemClockConfig, then initialise GPIO, DMA, ADC1, FDCAN1, USART1, USART2 in t…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-2 - The system shall enter ErrorHandler() if any CubeMX init call returns other than HALOK. ErrorHandler() disable…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-3 - cppmain() shall construct one function-local static App::Application<> and call run(), which does not return. …
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-4 - Application::init() shall log Initializing Application..., initialise the transport, initialise the ADC, and l…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-5 - At GPIO init the system shall drive LEDGREEN (PA5) and LEDBLUE (PC9) high, drive CANSTBY (PD2) low, and config…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-6 - The system shall use UartTransport when USEUARTTRANSPORT is defined and CanTransport otherwise. The macro is d…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-7 - ADC1 shall be configured for 12-bit, right-aligned, software-triggered conversion with the fixed sequencer. Sa…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-8 - Adc::init() shall run HALADCExCalibrationStart and then HALADCStartDMA into a 6-element volatile uint16t buffe…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-9 - Adc::readAll() shall copy the six DMA buffer values into a non-volatile array and return it by const reference…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-10 - Each loop iteration shall call CommunicationManager::process(settings, adc) with the real Hal::Adc. It then bu…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-11 - process() shall handle exactly one 8-byte packet per call, and only when available() is true and receive(buf, …
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-12 - The system shall decode request byte 0 as: bit 0 = write flag (1 = write), bits 1-7 = command ID. Source: Comm…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-13 - For every handled packet, the system shall transmit an 8-byte response. Byte 0 echoes request byte 0, and all …
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-14 - Command 0x00 read shall return ADC channels 0, 1 and 2 as little-endian 16-bit values in bytes 1-6. Byte 7 is …
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-15 - Commands 0x01, 0x02, 0x03 and 0x05 shall read or write transparentThreshold, nontransparentThreshold, timeDela…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-16 - Written values shall be stored without range or consistency checks. Settings::isValid() exists but is not call…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-17 - Command 0x04 read shall return in byte 1 a bit mask in which bit i (i = 0..5) is set when ADC channel i is str…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-18 - An unknown command ID shall produce the echo + zeros response, with no error code. Source: CommunicationManage…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-19 - Settings shall start with these defaults: transparentThreshold 1000, nontransparentThreshold 3000, timeDelay 1…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-20 - Settings::isValid() shall return true only if transparentThreshold < nontransparentThreshold, timeDelay > 0 an…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-21 - USART1 shall run at 115200 baud, 8 data bits, no parity, 1 stop bit, no flow control, FIFO disabled, on PC4 (T…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-22 - UartTransport::init() shall log UartTransport: Initialized (Interrupt mode) and start interrupt reception of 8…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-23 - HALUARTRxCpltCallback shall call onRxComplete() only for USART1 and only when guartTransport is non-null. onRx…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-24 - receive() shall return false if the ready flag is clear. Otherwise it copies min(length, 8) bytes, logs RX[n]:…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-25 - transmit() shall log UartTransport: Transmitting packet..., send the buffer on USART1 with a blocking 100 ms t…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-26 - CanTransport shall act as a stub: init() returns true, available() and receive() return false, transmit() does…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-27 - FDCAN1 shall be initialised with classic frames, normal mode, nominal prescaler 12, SJW 1, seg1 3, seg2 1, one…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-28 - USART2 shall run at 115200 baud, 8N1, on PA2 (VCPTX) / PA3 (VCPRX). Source: Core/Src/main.c:364-378, Core/Src/…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-29 - Logger::log(msg) shall send the message and then \r\n on USART2. Each part uses a blocking transmit with a 100…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-30 - Logger::log(prefix, value) shall format prefix: value into a 128-byte buffer and drop the message if formattin…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-31 - write() shall send stdout/stderr data to USART2 with a 100 ms timeout and return len unconditionally. Source: …
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-32 - Hal::AdcStub::readAll() shall return 3000 on all six channels when its call counter mod 20 is greater than 10,…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
+
+### FR-33 - The Arduino tester shall repeat this cycle: read 0x00, read 0x04, write 0x01 = 2000, read 0x01. It uses Softwa…
+
+> Screenshot skipped: the code does not run here - firmware for an STM32 microcontroller; it runs only on the board, and this machine has no board, debug probe or MCU emulator.
